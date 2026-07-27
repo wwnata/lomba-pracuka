@@ -1,0 +1,10 @@
+{
+  "name": "lomba-pramuka",
+  "devDependencies": {
+    "html-minifier-terser": "^7.2.0",
+    "javascript-obfuscator": "^4.1.0"
+  },
+  "scripts": {
+    "build": "mkdir -p dist && cp -R assets dist/ && cp style.css dist/style.css && javascript-obfuscator script.js --output dist/script.js --compact true --control-flow-flattening true && html-minifier-terser --collapse-whitespace --remove-comments --minify-css true -o dist/index.html index.html"
+  }
+}

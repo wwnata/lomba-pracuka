@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#102a43">
+    <title>ITA JAMNAS & LT II</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="navbar">
+            <div class="brand">
+                <button class="menu-button" onclick="toggleMenu()">☰</button>
+                <img src="assets/1.png" alt="Logo kegiatan" id="logoRahasia">
+            </div>
+
+            <nav id="navigation">
+                <button class="nav-button active" onclick="showPage('beranda', this)">Beranda</button>
+                <button class="nav-button" onclick="showPage('tentang', this)">Tentang</button>
+                <button class="nav-button" onclick="showPage('peserta', this)">Peserta</button>
+                <button class="nav-button" onclick="showPage('jadwal', this)">Jadwal</button>
+                <button class="nav-button" onclick="showPage('nilai', this)">Nilai</button>
+                <button class="nav-button" onclick="showPage('sambutan', this)">Sambutan</button>
+                <button id="logoutButton" class="nav-button" onclick="logoutAdmin()" style="display:none">Keluar</button>
+            </nav>
+
+            <img src="assets/2.png" alt="Logo kwartir" class="logo-right">
+        </div>
+    </header>
+
+    <main>
+        <section id="beranda" class="page active hero">
+            <div>
+                <div class="eyebrow">GERAKAN PRAMUKA • KWARTIR RANTING</div>
+                <h1>ITA JAMNAS <span>&amp; LT II</span></h1>
+                <p class="hero-subtitle">Tangguh, Cerdas, Berprestasi!</p>
+                <p class="hero-description">
+                    Wadah pengembangan karakter, keterampilan, sportivitas,
+                    dan persaudaraan bagi Pramuka Penggalang terbaik.
+                </p>
+
+                <div class="actions">
+                    <button class="button button-gold" onclick="showPage('peserta', navButtons[2])">
+                        Lihat Peserta →
+                    </button>
+                    <button class="button button-outline" onclick="showPage('jadwal', navButtons[3])">
+                        Lihat Jadwal
+                    </button>
+                </div>
+
+                <div class="hero-stats">
+                    <div>
+                        <strong id="heroTotal">0</strong>
+                        <small>Peserta</small>
+                    </div>
+                    <div>
+                        <strong>4</strong>
+                        <small>Agenda Utama</small>
+                    </div>
+                    <div>
+                        <strong>100%</strong>
+                        <small>Semangat</small>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tentang" class="page">
+            <div class="card about-grid">
+                <div>
+                    <div class="label">TENTANG KEGIATAN</div>
+                    <h2 class="title">Membentuk generasi <span>hebat</span></h2>
+                    <p class="description">
+                        <strong>Lomba Tingkat II &amp; Ikut Serta Jambore Nasional
+                        (ITA JAMNAS)</strong> merupakan kegiatan prestisius Kwartir
+                        Ranting yang mempertemukan Pramuka Penggalang terbaik.
+                    </p>
+                    <p class="description">
+                        Kegiatan ini menguji ketangkasan, kecerdasan, kekompakan,
+                        teknik kepramukaan, kedisiplinan, dan persaudaraan.
+                    </p>
+                </div>
+
+                <div class="features">
+                    <div class="feature">
+                        <span class="feature-icon">★</span>
+                        <div><strong>Berprestasi</strong><small>Mengasah kemampuan peserta.</small></div>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon">♟</span>
+                        <div><strong>Berkarakter</strong><small>Membangun kemandirian.</small></div>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon">♥</span>
+                        <div><strong>Bersaudara</strong><small>Mempererat persahabatan.</small></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="peserta" class="page">
+            <div class="card">
+                <div class="section-header">
+                    <div>
+                        <div class="label">DATA PESERTA</div>
+                        <h2 class="title">Daftar <span>Peserta</span></h2>
+                    </div>
+                    <span class="badge">Peserta Terdaftar</span>
+                </div>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Sekolah</th>
+                                <th>Regu</th>
+                                <th>Kategori</th>
+                            </tr>
+                        </thead>
+                        <tbody id="publicParticipants"></tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="jadwal" class="page">
+            <div class="card">
+                <div class="label">AGENDA ACARA</div>
+                <h2 class="title">Jadwal <span>Kegiatan</span></h2>
+
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-time">SENIN<br>07:30</div>
+                        <div class="timeline-content">
+                            <span class="tag">PEMBUKAAN</span>
+                            <h3>Upacara Pembukaan &amp; Adat Buka</h3>
+                            <p>Lapangan Utama</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">SENIN<br>09:30</div>
+                        <div class="timeline-content">
+                            <span class="tag">LOMBA</span>
+                            <h3>Lomba Pioneering 10 Tongkat</h3>
+                            <p>Area Lomba A</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">SELASA<br>13:00</div>
+                        <div class="timeline-content">
+                            <span class="tag">KETERAMPILAN</span>
+                            <h3>Giat Halang Rintang &amp; Sandi</h3>
+                            <p>Rute Penjelajahan</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">SELASA<br>19:30</div>
+                        <div class="timeline-content">
+                            <span class="tag">MALAM SENI</span>
+                            <h3>Api Unggun &amp; Pentas Seni</h3>
+                            <p>Lapangan Utama</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="nilai" class="page">
+            <div class="card">
+                <div class="label">HASIL PERLOMBAAN</div>
+                <h2 class="title">Klasemen <span>Nilai</span></h2>
+
+                <div class="tabs">
+                    <button class="tab active" onclick="showScores('SD', this)">Kategori SD</button>
+                    <button class="tab" onclick="showScores('SMP', this)">Kategori SMP</button>
+                </div>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Regu</th>
+                                <th>Pioneering</th>
+                                <th>Sandi</th>
+                                <th>Halang Rintang</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody id="publicScores"></tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="admin" class="page">
+            <div class="card">
+                <div class="label">PANEL ADMIN</div>
+                <h2 class="title">Dashboard <span>Admin</span></h2>
+
+                <div class="summary">
+                    <div class="summary-box">
+                        <small>Total Peserta</small>
+                        <strong id="totalParticipants">0</strong>
+                    </div>
+                    <div class="summary-box">
+                        <small>Peserta SD</small>
+                        <strong id="totalSD">0</strong>
+                    </div>
+                    <div class="summary-box">
+                        <small>Peserta SMP</small>
+                        <strong id="totalSMP">0</strong>
+                    </div>
+                </div>
+
+                <h3 class="section-header">Tambah / Edit Peserta</h3>
+
+                <form id="participantForm" onsubmit="saveParticipant(event)">
+                    <input type="hidden" id="participantId">
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="school">Sekolah</label>
+                            <input id="school" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="team">Nama Regu</label>
+                            <input id="team" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="category">Kategori</label>
+                            <select id="category">
+                                <option value="SD">SD</option>
+                                <option value="SMP">SMP</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button class="button button-success" id="participantSubmit">Tambah Peserta</button>
+                        <button type="button" class="button button-muted" onclick="resetParticipantForm()">Batal</button>
+                    </div>
+
+                    <div id="participantMessage" class="message"></div>
+                </form>
+
+                <div class="section-header">
+                    <h3>Data Peserta</h3>
+                    <button class="button button-danger" onclick="deleteAllParticipants()">Hapus Semua</button>
+                </div>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Sekolah</th>
+                                <th>Regu</th>
+                                <th>Kategori</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody id="adminParticipants"></tbody>
+                    </table>
+                </div>
+
+                <h3 class="section-header">Tambah / Edit Nilai</h3>
+
+                <form id="scoreForm" onsubmit="saveScore(event)">
+                    <input type="hidden" id="scoreId">
+
+                    <div class="form-grid score-grid">
+                        <div class="form-group">
+                            <label for="scoreParticipant">Peserta / Regu</label>
+                            <select id="scoreParticipant" required></select>
+                        </div>
+                        <div class="form-group">
+                            <label for="pioneering">Pioneering</label>
+                            <input id="pioneering" type="number" min="0" max="100" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cipher">Sandi</label>
+                            <input id="cipher" type="number" min="0" max="100" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="obstacle">Halang Rintang</label>
+                            <input id="obstacle" type="number" min="0" max="100" required>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button class="button button-success" id="scoreSubmit">Tambah Nilai</button>
+                        <button type="button" class="button button-muted" onclick="resetScoreForm()">Batal</button>
+                    </div>
+
+                    <div id="scoreMessage" class="message"></div>
+                </form>
+
+                <div class="section-header">
+                    <h3>Data Nilai</h3>
+                    <button class="button button-danger" onclick="deleteAllScores()">Hapus Semua</button>
+                </div>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Regu</th>
+                                <th>Kategori</th>
+                                <th>Pioneering</th>
+                                <th>Sandi</th>
+                                <th>Halang Rintang</th>
+                                <th>Total</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody id="adminScores"></tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="sambutan" class="page">
+            <div class="card quote">
+                <div class="label">SAMBUTAN KETUA KWARRAN</div>
+                <h2 class="title">Salam <span>Pramuka!</span></h2>
+                <p>
+                    Selamat datang di arena Lomba Tingkat II dan ITA JAMNAS.
+                    Jadikan kegiatan ini sebagai tempat membentuk kedisiplinan,
+                    kemandirian, sportivitas, dan persaudaraan.
+                </p>
+                <div class="signature">
+                    Ketua Kwartir Ranting<br>
+                    <strong>( Kak ........................ )</strong>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <span>© 2025 ITA JAMNAS &amp; LT II</span>
+        <span>Salam Pramuka ⚜</span>
+    </footer>
+
+    <div id="loginOverlay" class="login-overlay">
+        <div class="login-box">
+            <button class="close-login" onclick="closeLogin()">×</button>
+            <h2>Login Admin</h2>
+            <p>Masuk untuk mengelola data kegiatan.</p>
+
+            <form onsubmit="login(event)">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input id="username" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input id="password" type="password" required>
+                </div>
+
+                <button class="button button-primary">Masuk</button>
+                <button type="button" class="button button-muted" onclick="closeLogin()">Batal</button>
+                <div id="loginMessage" class="message"></div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
